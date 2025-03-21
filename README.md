@@ -6,3 +6,7 @@ You can download it here  <a href="https://github.com/user-attachments/files/193
 
 <h1> How to install? </h1>
 Unzip the downloaded file and move libList.so to /usr/lib
+
+<h1> How to link? </h1>
+You can linked the library to your C project as follows: gcc example.c -l List
+and don't forget to include linked_list.h, note that linked_list.h depends on linked_list_details.h so keep both in the same directory.
