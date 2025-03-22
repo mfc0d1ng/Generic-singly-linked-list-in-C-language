@@ -115,6 +115,7 @@ int main()
         }
     }
 
+    puts("matrix: ");
     /* Print the matrix */
     for (List_iterator it = List_begin(&matrix); it; it = it->next)
     {
