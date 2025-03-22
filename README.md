@@ -109,6 +109,7 @@ int main()
     scanf("%i", &width);
     printf("%s", "Enter matrix height: ");
     scanf("%i", &height);
+    
     List matrix = create_matrix(width, height);
 
     /* Populate the matrix */
