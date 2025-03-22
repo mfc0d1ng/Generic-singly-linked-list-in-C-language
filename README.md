@@ -78,4 +78,60 @@ int main()
 </code>
 </pre>
 
+* Example B:
+
+<pre>
+<code class="language-c">
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include "linked_list.h"
+
+/* Allocate memory for matrix of a size height * width */
+List create_matrix(int heigh, int width)
+{
+    /* Construct matrix */
+    List matrix = List_new(int *);
+    for (int i = 0; i < heigh; i++)
+    {
+        List_push_back(int *, &matrix, malloc(width * sizeof(int)));
+        if(List_back(int *, &matrix) == NULL)
+        {
+            exit(EXIT_FAILURE);
+        }
+    }
+    return matrix;
+}
+
+int main()
+{
+    List matrix = create_matrix(10, 10);
+
+    /* Populate the matrix */
+    for (List_iterator it = List_begin(&matrix); it; it = it->next)
+    {
+        for (size_t i = 0; i < 10; i++)
+        {
+            List_data(int *, it)[i] = i;
+        }
+    }
+
+    /* Print the matrix */
+    for (List_iterator it = List_begin(&matrix); it; it = it->next)
+    {
+        for (size_t i = 0; i < 10; i++)
+        {
+            printf("%i ", List_data(int *, it)[i]);
+        }
+        /* Free the memory which is allocated for matrix */
+        free(List_data(int *, it));
+        puts("");
+    }
+
+    /* Erase matrix */
+    List_destructor(&matrix);
+
+    return EXIT_SUCCESS;
+}
+</code>
+</pre>
 
