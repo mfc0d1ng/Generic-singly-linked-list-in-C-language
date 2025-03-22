@@ -87,7 +87,7 @@ int main()
 #include "linked_list.h"
 
 /* Allocate memory for matrix of a size height * width */
-List create_matrix(int heigh, int width)
+List create_matrix(int width, int height)
 {
     /* Construct matrix */
     List matrix = List_new(int *);
@@ -104,12 +104,17 @@ List create_matrix(int heigh, int width)
 
 int main()
 {
-    List matrix = create_matrix(10, 10);
+    int width, height;
+	printf("%s", "Enter matrix width: ");
+	scanf("%i", &width);
+	printf("%s", "Enter matrix height: ");
+	scanf("%i", &height);
+    List matrix = create_matrix(width, height);
 
     /* Populate the matrix */
     for (List_iterator it = List_begin(&matrix); it; it = it->next)
     {
-        for (size_t i = 0; i < 10; i++)
+        for (size_t i = 0; i < width; i++)
         {
             List_data(int *, it)[i] = i;
         }
@@ -120,7 +125,7 @@ int main()
     for (List_iterator it = List_begin(&matrix); it; it = it->next)
     {
         /* Print the current row in matrix */
-        for (size_t i = 0; i < 10; i++)
+        for (size_t i = 0; i < width; i++)
         {
             printf("%i ", List_data(int *, it)[i]);
         }
