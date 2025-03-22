@@ -91,7 +91,7 @@ List create_matrix(int width, int height)
 {
     /* Construct matrix */
     List matrix = List_new(int *);
-    for (int i = 0; i < heigh; i++)
+    for (int i = 0; i < height; i++)
     {
         List_push_back(int *, &matrix, malloc(width * sizeof(int)));
         if(List_back(int *, &matrix) == NULL)
