@@ -119,11 +119,12 @@ int main()
     /* Print the matrix */
     for (List_iterator it = List_begin(&matrix); it; it = it->next)
     {
+        /* Print the current row in matrix */
         for (size_t i = 0; i < 10; i++)
         {
             printf("%i ", List_data(int *, it)[i]);
         }
-        /* Free the memory which is allocated for matrix */
+        /* Free the current row in matrix */
         free(List_data(int *, it));
         puts("");
     }
