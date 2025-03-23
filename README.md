@@ -33,17 +33,14 @@ int main()
     /* Add characters to chars */
     List_push_back(char, &chars, 'A');
     List_push_back(char, &chars, 'B');
-    List_push_back(char, &chars, 'C');
 
     /* Add integer values to integers */
     List_push_back(int, &integers, 1000);
     List_push_back(int, &integers, 1001);
-    List_push_back(int, &integers, 1002);
 
     /* Add literal strings to strings */
     List_push_back(const char *, &strings, "Hello");
     List_push_back(const char *, &strings, "world");
-    List_push_back(const char *, &strings, "2025");
 
     printf("List chars contains: ");
     for (List_iterator it = List_begin(&chars); it; it = it->next)
