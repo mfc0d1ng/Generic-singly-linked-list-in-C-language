@@ -43,7 +43,9 @@ int main()
     }
 
     /* Erase integers */
-    List_destructor(&integers);    
+    List_destructor(&integers);
+    
+    return EXIT_SUCCESS;
 }
 </code>
 </pre>
@@ -56,59 +58,36 @@ int main()
 #include &lt;stdlib.h&gt;
 #include "linked_list.h"
 
-/* Allocate memory for matrix of a size height * width */
-List create_matrix(int width, int height)
+int sort_fruits_predicate(const void* __ls, const void* __rs)
 {
-    /* Construct matrix */
-    List matrix = List_new(int *);
-    for (int i = 0; i < height; i++)
-    {
-        List_push_back(int *, &matrix, malloc(width * sizeof(int)));
-        if(List_back(int *, &matrix) == NULL)
-        {
-            exit(EXIT_FAILURE);
-        }
-    }
-    return matrix;
+    return strcmp(*(const char **)__ls, *(const char **)__rs) > 0;
 }
 
 int main()
 {
-    int width, height;
-    printf("%s", "Enter matrix width: ");
-    scanf("%i", &width);
-    printf("%s", "Enter matrix height: ");
-    scanf("%i", &height);
+    /* Construct fruits */
+    List fruits = List_new(const char *);
+
+    /* Add fruits to List fruits */
+    List_push_back(const char *, &fruits, "strawberry");
+    List_push_back(const char *, &fruits, "apple");
+    List_push_back(const char *, &fruits, "pineapple");
+    List_push_back(const char *, &fruits, "banana");
+
+    /* Sort fruits in ascending order */
+    List_sort(&fruits, sort_fruits_predicate);
+
+    /* Print contents of fruits */
+    printf("List fruits after sorting: ");
+    for (List_iterator it = List_begin(&fruits); it != NULL; it = it->next)
+    {
+        printf("%s ", List_data(const char *, it));
+    }
+
+    /* Erase fruits */
+    List_destructor(&fruits);
     
-    List matrix = create_matrix(width, height);
-
-    /* Populate the matrix */
-    for (List_iterator it = List_begin(&matrix); it; it = it->next)
-    {
-        for (size_t i = 0; i < width; i++)
-        {
-            List_data(int *, it)[i] = i;
-        }
-    }
-
-    puts("matrix: ");
-    /* Print the matrix */
-    for (List_iterator it = List_begin(&matrix); it; it = it->next)
-    {
-        /* Print the current row in matrix */
-        for (size_t i = 0; i < width; i++)
-        {
-            printf("%i ", List_data(int *, it)[i]);
-        }
-        /* Free the current row in matrix */
-        free(List_data(int *, it));
-        puts("");
-    }
-
-    /* Erase matrix */
-    List_destructor(&matrix);
-
-    return EXIT_SUCCESS;
+    return EXIT_SUCCESS;   
 }
 </code>
 </pre>
