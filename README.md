@@ -56,6 +56,7 @@ int main()
 <code class="language-c">
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;    
 #include "linked_list.h"
 
 int sort_fruits_predicate(const void* __ls, const void* __rs)
