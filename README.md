@@ -2,14 +2,14 @@
 A shared library which provides a set of functions for handling singly linked list in C. Note that the library doesn't provide methods for constructing and copying the list elements because C  isn't object-oriented programming language. User is responsible for constructing and copying the list elements.
 
 <h2> How to download? </h2>
-You can download it here  <a href="https://github.com/user-attachments/files/19917090/libList.zip">here</a>
+You can download it here  <a href="https://github.com/user-attachments/files/19999024/libList.zip">here</a>
 
 <h2> How to install? </h2>
 Unzip the downloaded file and move libList.so to /usr/lib
 
 <h2> How to link? </h2>
-You can link the library to your C project as follows: gcc example.c -l List <br>
-And don't forget to include linked_list.h, note that linked_list.h depends on linked_list_details.h so keep both in the same directory.
+You can link the library to your C project as follows: gcc example.c -l List
+
 <br>
 <h2> Examples </h2>
 
@@ -24,7 +24,7 @@ And don't forget to include linked_list.h, note that linked_list.h depends on li
 int main()
 {
     /* Construct integers */
-    List integers = List_new(int);
+    List integers = List_new();
 
     for (size_t i = 101; i < 110; i++)
     {
@@ -68,26 +68,26 @@ int sort_fruits_predicate(const void* __ls, const void* __rs)
 int main()
 {
     /* Construct fruits */
-    List fruits = List_new(const char *);
+    List* fruits = List_object();
 
     /* Add fruits to List fruits */
-    List_push_back(const char *, &fruits, "strawberry");
-    List_push_back(const char *, &fruits, "apple");
-    List_push_back(const char *, &fruits, "pineapple");
-    List_push_back(const char *, &fruits, "banana");
+    List_push_back(const char*, fruits, "strawberry");
+    List_push_back(const char*, fruits, "apple");
+    List_push_back(const char*, fruits, "pineapple");
+    List_push_back(const char*, fruits, "banana");
 
     /* Sort fruits in ascending order */
-    List_sort(&fruits, sort_fruits_predicate);
+    List_sort(fruits, sort_fruits_predicate);
 
     /* Print contents of fruits */
     printf("List fruits after sorting: ");
-    for (List_iterator it = List_begin(&fruits); it != NULL; it = it->next)
+    for (List_iterator it = List_begin(fruits); it != NULL; it = it->next)
     {
-        printf("%s ", List_data(const char *, it));
+        printf("%s ", List_data(const char*, it));
     }
 
     /* Erase fruits */
-    List_destructor(&fruits);
+    List_delete(fruits);
     
     return EXIT_SUCCESS;   
 }
