@@ -1,5 +1,5 @@
 # Generic singly linked list in C language
-A shared library which provides a set of functions for handling singly linked list in C. Note that the library doesn't provide methods for constructing and copying the list elements because C  isn't object-oriented programming language. User is responsible for constructing and copying the list elements.
+A shared library which provides a set of functions for handling the singly linked list in C.
 
 <h2> How to download? </h2>
 You can download it here  <a href="https://github.com/user-attachments/files/20061085/libList.zip">here</a>
