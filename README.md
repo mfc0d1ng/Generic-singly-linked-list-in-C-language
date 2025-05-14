@@ -19,7 +19,7 @@ You can link the library to your C project as follows: gcc example.c -l List
 <code class="language-c">
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
-#include "linked_list.h"
+#include "List.h"
 
 int main()
 {
@@ -57,7 +57,7 @@ int main()
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;string.h&gt;    
-#include "linked_list.h"
+#include "List.h"
 
 /* Sort predicate */
 int sort_fruits_predicate(const void* __ls, const void* __rs)
