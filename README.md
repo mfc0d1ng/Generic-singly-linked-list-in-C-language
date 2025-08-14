@@ -43,7 +43,7 @@ int main()
     }
 
     /* Erase integers */
-    List_destructor(&integers);
+    List_destroy(&integers);
     
     return EXIT_SUCCESS;
 }
