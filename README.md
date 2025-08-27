@@ -2,7 +2,7 @@
 A shared library which provides a set of functions for handling the singly linked list in C.
 
 <h2> How to download? </h2>
-You can download it here  <a href="https://github.com/user-attachments/files/22014653/libList.zip">here</a>
+You can download it here  <a href="https://github.com/user-attachments/files/22015071/libList.zip">here</a>
 
 <h2> How to install? </h2>
 Unzip the downloaded file and move libList.so to /usr/lib
@@ -62,7 +62,7 @@ int main()
 /* Sort predicate */
 int sort_fruits_predicate(const void* __ls, const void* __rs)
 {
-    return strcmp(*(const char **)__ls, *(const char **)__rs) > 0;
+    return strcmp(*(const char **)__ls, *(const char **)__rs) < 0;
 }
 
 int main()
